@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Kaleb Kalvin</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.container {
+    padding: 40px 10%;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    position: relative;
+    background: #ffffff10;
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    padding: 10px 20px;
+    border-radius: 50%;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img, .modal video {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    animation: zoomIn 0.4s ease;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.7); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: #00000040;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>My Portofolio</h1>
+    <p>Desain | Video | Fotografi</p>
+</header>
+
+<div class="container">
+    <div class="portfolio">
+
+        <!-- Gambar -->
+        <div class="card" onclick="openImage(this)">
+            <img src="poster 1.jpg" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Desain Poster</h3>
+                <p>Poster ujian akhir sekolah.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openImage(this)">
+            <img src="poster 2.jpg" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Poster Design</h3>
+                <p>Final school exam poster.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openImage(this)">
+            <img src="Ruang Praktek (1).png" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Banner Design</h3>
+                <p>Banner for the practice room of SMK Mutiara Bangsa 6.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openImage(this)">
+            <img src="IMG_1199.jpg" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Photography</h3>
+                <p>An Elementary School Student Performing at the Mutiara Bangsa 6 Arts Festival.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openImage(this)">
+            <img src="IMG_1268.jpg" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Photography</h3>
+                <p>A Person Performing at the Mutiara Bangsa 6 Arts Stage, This Photo Was Taken Using the Frame to Frame Technique.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openImage(this)">
+            <img src="IMG_1271.jpg" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Photography</h3>
+                <p>A High School Student Performing at the Mutiara Bangsa 6 Arts Festival.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openImage(this)">
+            <img src="IMG_1686.jpg" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Photography</h3>
+                <p>Two people performing at the Mutiara Bangsa 6 arts stage looked like they were having a fight.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openImage(this)">
+            <img src="IMG_1726.jpg" alt="Desain Poster">
+            <div class="card-content">
+                <h3>Photography</h3>
+                <p>A Vocational High School Student Performing at the Mutiara Bangsa 6 Arts Festival.</p>
+            </div>
+        </div>
+
+        <!-- Video -->
+        <div class="card" onclick="openVideo('PROFIL 4.mp4')">
+            <img src="thumbnail.jpeg" alt="Video Thumbnail">
+            <div class="play-button">▶</div>
+            <div class="card-content">
+                <h3>Profile Video SMK</h3>
+                <p>Video introduction to SMK Mutiara Bangsa 6.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openVideo('vidio 2.mp4')">
+            <img src="thumbnail 2.png" alt="Video Thumbnail">
+            <div class="play-button">▶</div>
+            <div class="card-content">
+                <h3>Vocational Training Video</h3>
+                <p>Vocational Training by UBM at SMK Mutiara Bangsa 6.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openVideo('FINAL 2.mp4')">
+            <img src="thumbnail 3.png" alt="Video Thumbnail">
+            <div class="play-button">▶</div>
+            <div class="card-content">
+                <h3>GSO Short Films</h3>
+                <p>I As An Editor In This Film.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openVideo('film fls3n.mp4')">
+            <img src="thumbnail 4.jpg" alt="Video Thumbnail">
+            <div class="play-button">▶</div>
+            <div class="card-content">
+                <h3>FLS3N Short Films</h3>
+                <p>1st Place at District Level.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openVideo('Tugas Film.mp4')">
+            <img src="thubnail tugas.png" alt="Video Thumbnail">
+            <div class="play-button">▶</div>
+            <div class="card-content">
+                <h3>Short Film "Line of Friendship"</h3>
+                <p>Assignments in the Videography Subject.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openVideo('P7.mp4')">
+            <img src="thumbnail p7.png" alt="Video Thumbnail">
+            <div class="play-button">▶</div>
+            <div class="card-content">
+                <h3>Video Project P7</h3>
+                <p>Hospitality Procedures Project.</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openVideo('Konten.mp4')">
+            <img src="thumbnail konten.png" alt="Video Thumbnail">
+            <div class="play-button">▶</div>
+            <div class="card-content">
+                <h3>Instagram Content Videos</h3>
+                <p>Video to commemorate the process of making the film FLS3N.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="myModal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImg" style="display:none;">
+    <video id="modalVideo" controls style="display:none;"></video>
+</div>
+
+<footer>
+    © 2026 Kaleb's Portofolio
+</footer>
+
+<script>
+function openImage(element) {
+    var modal = document.getElementById("myModal");
+    var img = document.getElementById("modalImg");
+    var video = document.getElementById("modalVideo");
+
+    video.style.display = "none";
+    img.style.display = "block";
+    img.src = element.querySelector("img").src;
+
+    modal.style.display = "flex";
+}
+
+function openVideo(src) {
+    var modal = document.getElementById("myModal");
+    var img = document.getElementById("modalImg");
+    var video = document.getElementById("modalVideo");
+
+    img.style.display = "none";
+    video.style.display = "block";
+    video.src = src;
+
+    modal.style.display = "flex";
+    video.play();
+}
+
+function closeModal() {
+    var modal = document.getElementById("myModal");
+    var video = document.getElementById("modalVideo");
+
+    video.pause();
+    video.currentTime = 0;
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
+
+</body>
+</html>
